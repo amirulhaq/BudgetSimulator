@@ -1,0 +1,14 @@
+# Requirements with explanations
+
+streamlit                # Streamlit: Web app framework for building interactive dashboards
+pandas                   # Pandas: Data manipulation and analysis
+numpy                    # NumPy: Numerical computing library
+plotly                   # Plotly: Interactive plotting and visualization
+torch                    # PyTorch: Deep learning framework for model training/prediction
+scikit-learn             # scikit-learn: Machine learning utilities (e.g., preprocessing)
+sqlalchemy               # SQLAlchemy: ORM and database toolkit
+psycopg2-binary          # psycopg2-binary: PostgreSQL database adapter
+google-generativeai      # Google Generative AI: Client for Gemini API integration
+streamlit-option-menu    # Streamlit Option Menu: Custom sidebar navigation component
+openpyxl                 # Openpyxl: Reading/writing Excel files
+
