@@ -10,6 +10,27 @@ from streamlit_option_menu import option_menu
 
 from models.lstm_model import train_bayesian_lstm, predict_with_uncertainty
 
+# load credentials from secrets
+creds = st.secrets["credentials"]
+
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+# If not yet authenticated, show login form
+if not st.session_state.authenticated:
+    st.sidebar.subheader("🔒 Please log in")
+    user = st.sidebar.text_input("Username")
+    pwd  = st.sidebar.text_input("Password", type="password")
+    if st.sidebar.button("Log in"):
+        if user in creds and creds[user] == pwd:
+            st.session_state.authenticated = True
+            st.session_state.user_name     = user
+            st.sidebar.success(f"Welcome, {user}!")
+        else:
+            st.sidebar.error("❌ Invalid credentials")
+    # Stop the app here until they log in
+    st.stop()
+    
 # --- Config & Gemini ---
 st.set_page_config(page_title="Budget Simulator", layout="wide")
 gem_api   = st.secrets["gemini"]["api_key"]
